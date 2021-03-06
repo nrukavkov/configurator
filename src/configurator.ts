@@ -87,7 +87,7 @@ export class Configurator {
     console.log(`Downloading tool from ${downloadURL}`);
     let downloadPath: string | null = null;
     let archivePath: string | null = null;
-    const tempDir = path.join(__dirname, ".configurator", "temp");
+    const tempDir = path.join(process.cwd(), ".configurator", "temp");
     await io.mkdirP(tempDir);
     downloadPath = await tc.downloadTool(downloadURL);
 
@@ -176,7 +176,7 @@ export function getArchiveType(downloadURL: string): ArchiveType {
 }
 
 export function binPath(): string {
-  return path.join(__dirname, ".configurator");
+  return path.join(process.cwd(), ".configurator");
 }
 
 export enum ArchiveType {
