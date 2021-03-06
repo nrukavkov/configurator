@@ -176,19 +176,7 @@ export function getArchiveType(downloadURL: string): ArchiveType {
 }
 
 export function binPath(): string {
-  let baseLocation: string;
-  if (process.platform === "win32") {
-    // On windows use the USERPROFILE env variable
-    baseLocation = process.env["USERPROFILE"] || "C:\\";
-  } else {
-    if (process.platform === "darwin") {
-      baseLocation = "/Users";
-    } else {
-      baseLocation = "/home";
-    }
-  }
-
-  return path.join(baseLocation, os.userInfo().username, "configurator", "bin");
+  return path.join(__dirname, ".configurator");
 }
 
 export enum ArchiveType {
