@@ -87,7 +87,7 @@ export class Configurator {
     console.log(`Downloading tool from ${downloadURL}`);
     let downloadPath: string | null = null;
     let archivePath: string | null = null;
-    const tempDir = path.join(os.tmpdir(), "tmp", "runner", "temp");
+    const tempDir = path.join(__dirname, ".configurator", "temp");
     await io.mkdirP(tempDir);
     downloadPath = await tc.downloadTool(downloadURL);
 
